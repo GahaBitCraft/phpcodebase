@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP Web Development E-Book</title>
+    <link rel="stylesheet" href="assets/css/app.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>PHP Web Development E-Book</h1>
+        <nav>
+            <ul>
+                <li><a href="#intro">Introduction</a></li>
+                <li><a href="#getting-started">Getting Started</a></li>
+                <li><a href="#syntax-basics">Syntax & Basics</a></li>
+                <li><a href="#forms">Working with Forms</a></li>
+                <li><a href="#arrays">PHP Arrays</a></li>
+                <li><a href="#mysql">Database Interaction</a></li>
+                <li><a href="#oop">Object-Oriented PHP</a></li>
+                <li><a href="#error-handling">Error Handling</a></li>
+                <li><a href="#security">Security Best Practices</a></li>
+                <li><a href="#frameworks">PHP Frameworks</a></li>
+                <li><a href="#application">Building a PHP App</a></li>
+                <li><a href="#deployment">Deploying PHP Apps</a></li>
+                <li><a href="#tips">PHP Tips & Tricks</a></li>
+                <li><a href="#conclusion">Conclusion</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="intro">
+            <h2>1. Introduction to PHP</h2>
+            <p>PHP (Hypertext Preprocessor) is a popular open-source scripting language...</p>
+            <ul>
+                <li><strong>What is PHP?</strong>
+                    <p>PHP is a server-side scripting language designed for web development. It is embedded in HTML and is used to create dynamic web pages. PHP is widely used due to its simplicity, flexibility, and integration with databases.</p>
+                </li>
+                <li><strong>History of PHP</strong>
+                    <p>PHP was created in 1994 by Rasmus Lerdorf. Initially, it was a set of tools to track visits to his online resume. Over time, it evolved into a full-fledged programming language, with PHP 3.0 marking its official release in 1998.</p>
+                </li>
+                <li><strong>Why use PHP?</strong>
+                    <p>PHP is easy to learn, open-source, and cross-platform. It integrates seamlessly with databases like MySQL, is highly scalable, and has a large community for support. It is ideal for building dynamic and interactive web applications.</p>
+                </li>
+                <li><strong>PHP vs Other Server-Side Languages</strong>
+                    <p>Compared to Python, PHP is more focused on web development. Unlike Java, PHP is easier to learn and deploy. PHP is synchronous, while Node.js is asynchronous, making PHP better for traditional web apps and Node.js better for real-time apps.</p>
+                </li>
+            </ul>
+        </section>
+
+        <section id="getting-started">
+            <h2>2. Getting Started with PHP</h2>
+            <p>To get started with PHP, you need to install PHP, set up a local server, and write your first PHP script...</p>
+            <ul>
+                <li><strong>Installing PHP</strong>
+                    <p>Download PHP from the official website or install a local server environment like XAMPP, MAMP, or LAMP, which includes PHP, Apache, and MySQL. Verify the installation by running <code>php -v</code> in the terminal.</p>
+                </li>
+                <li><strong>Setting Up a Local Development Environment (XAMPP, MAMP, or LAMP)</strong>
+                    <p>Install a local server stack like XAMPP (cross-platform), MAMP (macOS), or LAMP (Linux). Place your PHP files in the server's root directory (e.g., <code>htdocs</code> for XAMPP) and access them via <code>http://localhost</code>.</p>
+                </li>
+                <li><strong>First PHP Script</strong>
+                    <p>Create a file named <code>index.php</code> with the following content:</p>
+                    <pre><code class="language-php">
+&lt;?php
+    echo "Hello, World!";
+?&gt;
+                    </code></pre>
+                    <p>Save it in the server's root directory and access it via <code>http://localhost/index.php</code>.</p>
+                </li>
+            </ul>
+        </section>
+
+        <section id="syntax-basics">
+            <h2>3. PHP Syntax and Basics</h2>
+            <p>PHP syntax is simple and flexible. Here are some examples:</p>
+            <pre><code class="language-php">
+&lt;?php
+    echo "Hello, World!";
+?&gt;
+            </code></pre>
+            <ul>
+                <li><strong>Variables and Data Types</strong>
+                    <p>Variables in PHP start with a <code>$</code> symbol, e.g., <code>$name = "John";</code>. PHP supports data types like strings, integers, floats, booleans, arrays, and objects.</p>
+                    <pre><code class="language-php">
+&lt;?php
+// String
+$name = "John";
+echo "Name: " . $name;
+
+// Integer
+$age = 25;
+echo "\nAge: " . $age;
+
+// Float
+$price = 19.99;
+echo "\nPrice: $" . $price;
+
+// Boolean
+$isAvailable = true;
+echo "\nAvailable: " . ($isAvailable ? "Yes" : "No");
+
+// Array
+$fruits = ["Apple", "Banana", "Cherry"];
+echo "\nFavorite Fruit: " . $fruits[0];
+
+// Object
+class Car {
+    public $make;
+    public $model;
+
+    public function __construct($make, $model) {
+        $this->make = $make;
+        $this->model = $model;
+    }
+}
+
+$car = new Car("Toyota", "Corolla");
+echo "\nCar: " . $car->make . " " . $car->model;
+?&gt;
+                    </code></pre>
+                </li>
+
+                <li><strong>Operators in PHP</strong>
+                    <p>PHP supports arithmetic operators (<code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>), comparison operators (<code>==</code>, <code>!=</code>, <code>&gt;</code>, <code>&lt;</code>), and logical operators (<code>&&</code>, <code>||</code>, <code>!</code>).</p>
+                    <pre><code class="language-php">
+&lt;?php
+// Arithmetic Operators
+$a = 10;
+$b = 5;
+echo "Addition: " . ($a + $b);
+echo "\nSubtraction: " . ($a - $b);
+echo "\nMultiplication: " . ($a * $b);
+echo "\nDivision: " . ($a / $b);
+
+// Comparison Operators
+echo "\nEqual: " . ($a == $b ? "True" : "False");
+echo "\nNot Equal: " . ($a != $b ? "True" : "False");
+echo "\nGreater Than: " . ($a > $b ? "True" : "False");
+
+// Logical Operators
+$isTrue = true;
+$isFalse = false;
+echo "\nLogical AND: " . ($isTrue && $isFalse ? "True" : "False");
+echo "\nLogical OR: " . ($isTrue || $isFalse ? "True" : "False");
+echo "\nLogical NOT: " . (!$isTrue ? "True" : "False");
+?>
+                    </code></pre>
+                </li>
+
+                <li><strong>Control Structures</strong>
+                    <p>PHP provides control structures like <code>if-else</code>, <code>switch</code>, and loops (<code>for</code>, <code>while</code>, <code>foreach</code>) to control the flow of execution.</p>
+                    <pre><code class="language-php">
+&lt;?php
+// If-Else
+$age = 20;
+if ($age >= 18) {
+    echo "You are an adult.";
+} else {
+    echo "You are a minor.";
+}
+
+// Switch
+$day = "Monday";
+switch ($day) {
+    case "Monday":
+        echo "\nStart of the week!";
+        break;
+    case "Friday":
+        echo "\nEnd of the work week!";
+        break;
+    default:
+        echo "\nIt's just another day.";
+}
+
+// For Loop
+for ($i = 1; $i <= 5; $i++) {
+    echo "\nNumber: " . $i;
+}
+
+// While Loop
+$count = 1;
+while ($count <= 3) {
+    echo "\nCount: " . $count;
+    $count++;
+}
+
+// Foreach Loop
+$colors = ["Red", "Green", "Blue"];
+foreach ($colors as $color) {
+    echo "\nColor: " . $color;
+}
+?>
+                    </code></pre>
+                </li>
+            </ul>
+        </section>
+
+        <section id="forms">
+            <h2>4. Working with Forms in PHP</h2>
+            <p>PHP allows you to handle form submissions using both GET and POST methods...</p>
+            <ul>
+                <li><strong>GET vs POST</strong></li>
+                <li><strong>Form Validation</strong></li>
+                <li><strong>File Uploads</strong></li>
+            </ul>
+        </section>
+
+        <section id="arrays">
+            <h2>5. PHP Arrays</h2>
+            <p>Arrays in PHP can be indexed, associative, or multidimensional. Here’s an example of an indexed array:</p>
+            <pre><code>
+                $fruits = array("Apple", "Banana", "Cherry");
+                echo $fruits[0]; // Outputs: Apple
+            </code></pre>
+            <ul>
+                <li><strong>Indexed Arrays</strong></li>
+                <li><strong>Associative Arrays</strong></li>
+                <li><strong>Multidimensional Arrays</strong></li>
+            </ul>
+        </section>
+
+        <section id="mysql">
+            <h2>6. Working with Databases (MySQL)</h2>
+            <p>PHP can interact with MySQL databases to store and retrieve data...</p>
+            <pre><code class="language-php">
+$conn = new mysqli("localhost", "user", "password", "database");
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+$result = $conn->query("SELECT * FROM users");
+while ($row = $result->fetch_assoc()) {
+    echo $row['name'];
+}
+$conn->close();
+            </code></pre>
+            <ul>
+                <li><strong>Connecting to MySQL using PHP</strong></li>
+                <li><strong>Basic CRUD Operations</strong></li>
+                <li><strong>Using PDO for Database Interaction</strong></li>
+            </ul>
+        </section>
+
+        <section id="oop">
+            <h2>7. PHP Object-Oriented Programming (OOP)</h2>
+            <p>Object-Oriented Programming (OOP) helps organize code in PHP...</p>
+            <pre><code>
+                class Car {
+                    public $make;
+                    public $model;
+
+                    function __construct($make, $model) {
+                        $this->make = $make;
+                        $this->model = $model;
+                    }
+                }
+
+                $car = new Car("Toyota", "Corolla");
+                echo $car->make; // Outputs: Toyota
+            </code></pre>
+            <ul>
+                <li><strong>Classes and Objects</strong></li>
+                <li><strong>Inheritance</strong></li>
+                <li><strong>Polymorphism</strong></li>
+            </ul>
+        </section>
+
+        <section id="error-handling">
+            <h2>8. PHP Error Handling</h2>
+            <p>Handling errors in PHP is essential to prevent issues during execution...</p>
+            <pre><code>
+                try {
+                    // Some code that may throw an exception
+                } catch (Exception $e) {
+                    echo 'Caught exception: ',  $e->getMessage();
+                }
+            </code></pre>
+            <ul>
+                <li><strong>Types of Errors</strong></li>
+                <li><strong>Error Reporting in PHP</strong></li>
+                <li><strong>Try-Catch Blocks</strong></li>
+            </ul>
+        </section>
+
+        <section id="security">
+            <h2>9. PHP Security Best Practices</h2>
+            <p>Security is crucial in PHP development. Always sanitize user inputs...</p>
+            <ul>
+                <li><strong>Input Sanitization</strong></li>
+                <li><strong>SQL Injection Protection</strong></li>
+                <li><strong>Hashing and Encryption</strong></li>
+            </ul>
+        </section>
+
+        <section id="frameworks">
+            <h2>10. PHP Frameworks</h2>
+            <p>PHP frameworks make development faster by providing reusable components...</p>
+            <ul>
+                <li><strong>Introduction to PHP Frameworks (Laravel, Symfony, etc.)</strong></li>
+                <li><strong>MVC Architecture</strong></li>
+            </ul>
+        </section>
+
+        <section id="application">
+            <h2>11. Building a Simple PHP Application</h2>
+            <p>Let’s build a simple PHP CRUD application. This will involve creating a form...</p>
+            <ul>
+                <li><strong>Building a Contact Form</strong></li>
+                <li><strong>Creating a CRUD Application</strong></li>
+            </ul>
+        </section>
+
+        <section id="deployment">
+            <h2>12. Deploying PHP Applications</h2>
+            <p>Deploying a PHP application involves setting up web hosting, FTP, and SSH...</p>
+            <ul>
+                <li><strong>Web Hosting Setup</strong></li>
+                <li><strong>Deploying with Git</strong></li>
+            </ul>
+        </section>
+
+        <section id="tips">
+            <h2>13. PHP Tips and Tricks</h2>
+            <p>Learn useful tips to make your PHP code cleaner and more efficient...</p>
+            <ul>
+                <li><strong>Debugging with Xdebug</strong></li>
+                <li><strong>Optimizing PHP Code</strong></li>
+            </ul>
+        </section>
+
+        <section id="conclusion">
+            <h2>14. Conclusion</h2>
+            <p>This concludes the PHP Web Development e-book. We recommend you continue exploring...</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 PHP Web Development E-Book</p>
+    </footer>
+
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
